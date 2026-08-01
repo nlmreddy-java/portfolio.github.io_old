@@ -1,0 +1,7 @@
+Name: LingaMoorthy Reddy Nandyala
+Title: Senior Java Developer | Tech Lead | Cloud-Native Architect
+Intro: I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.
+Summary: I’m a Senior Java Developer & Tech Lead with 11+ years of experience in building scalable enterprise applications, microservices, and cloud-native solutions.
+Details: My work spans finance, credit analytics, and banking environments, where reliability, security, and business value are critical.
+Certifications: GCP Associate Cloud Engineer, Google - Generative AI Leader
+Domains: Finance, Credit Analytics, Banking
