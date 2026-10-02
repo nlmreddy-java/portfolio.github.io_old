@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Admin – Portfolio</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <main class="page-shell admin-shell">
+    <header class="site-header">
+      <a class="brand" href="/">LRN · Admin</a>
+      <nav class="site-nav">
+        <a href="/" target="_blank" rel="noopener">View site ↗</a>
+        <a href="#" id="logoutLink" hidden>Log out</a>
+      </nav>
+    </header>
+
+    <div id="status" class="admin-status" role="status" hidden></div>
+
+    <!-- Login -->
+    <section id="loginView" class="auth-view" hidden>
+      <form id="loginForm" class="card auth-card">
+        <p class="eyebrow">Admin access</p>
+        <h1>Sign in</h1>
+        <label>Email<input type="email" name="email" autocomplete="username" required></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+        <button type="submit" class="btn">Sign in</button>
+        <button type="button" class="link-btn" id="forgotLink">Forgot password?</button>
+      </form>
+    </section>
+
+    <!-- Set password (invite acceptance or password recovery) -->
+    <section id="passwordView" class="auth-view" hidden>
+      <form id="passwordForm" class="card auth-card">
+        <p class="eyebrow">Account</p>
+        <h1 id="passwordTitle">Set your password</h1>
+        <label>New password<input type="password" name="password" autocomplete="new-password" minlength="8" required></label>
+        <button type="submit" class="btn">Save password</button>
+      </form>
+    </section>
+
+    <!-- Logged in without admin role -->
+    <section id="noAccessView" class="auth-view" hidden>
+      <div class="card auth-card">
+        <p class="eyebrow">Access denied</p>
+        <h1>Admin role required</h1>
+        <p class="muted">You're signed in as <strong id="noAccessEmail"></strong>, but this account doesn't have the <code>admin</code> role. Ask the site owner to add it in the Netlify dashboard under Identity.</p>
+      </div>
+    </section>
+
+    <!-- Editor -->
+    <form id="editorView" class="editor" hidden>
+      <div class="editor-bar">
+        <div>
+          <p class="eyebrow">Content editor</p>
+          <h1>Edit portfolio</h1>
+        </div>
+        <button type="submit" class="btn" id="saveBtn">Save changes</button>
+      </div>
+
+      <section class="card editor-section">
+        <h2>Photo & resume</h2>
+        <div class="upload-grid">
+          <div class="upload-box">
+            <img id="photoPreview" alt="Current profile photo" class="photo-preview">
+            <label class="btn secondary upload-btn">
+              Upload new photo
+              <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+            </label>
+            <small class="muted">JPG, PNG, WebP or GIF · max 4 MB</small>
+          </div>
+          <div class="upload-box">
+            <div class="resume-current">
+              <span class="resume-icon" aria-hidden="true">📄</span>
+              <div>
+                <strong>Current resume</strong>
+                <a id="resumeCurrent" target="_blank" rel="noopener"></a>
+              </div>
+            </div>
+            <label class="btn secondary upload-btn">
+              Upload new resume
+              <input type="file" id="resumeInput" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+            </label>
+            <small class="muted">PDF, DOC or DOCX · max 4 MB</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="card editor-section">
+        <h2>Hero</h2>
+        <label>Tagline<input name="heroEyebrow"></label>
+        <label>Name<input name="heroName"></label>
+        <label>Title<input name="heroTitle"></label>
+        <label>Introduction<textarea name="heroIntro" rows="3"></textarea></label>
+        <div class="field-row">
+          <label>Availability label<input name="heroAvailability"></label>
+          <label>Photo caption<input name="heroPanelText"></label>
+        </div>
+      </section>
+
+      <section class="card editor-section">
+        <h2>About</h2>
+        <label>Summary<textarea name="aboutSummary" rows="3"></textarea></label>
+        <label>Details<textarea name="aboutDetails" rows="3"></textarea></label>
+        <div class="field-row">
+          <label>Certifications<input name="aboutCertifications"></label>
+          <label>Domains<input name="aboutDomains"></label>
+        </div>
+      </section>
+
+      <section class="card editor-section">
+        <h2>Contact</h2>
+        <div class="field-row">
+          <label>Email<input name="contact.email" type="email"></label>
+          <label>Mobile<input name="contact.mobile"></label>
+        </div>
+        <div class="field-row">
+          <label>LinkedIn name<input name="contact.linkedin"></label>
+          <label>LinkedIn URL<input name="contact.linkedinUrl" type="url"></label>
+        </div>
+      </section>
+
+      <section class="card editor-section">
+        <div class="list-header">
+          <h2>Skills</h2>
+          <button type="button" class="mini-btn" data-add="skills">+ Add skill group</button>
+        </div>
+        <div id="skillsList" class="item-list"></div>
+      </section>
+
+      <section class="card editor-section">
+        <div class="list-header">
+          <h2>Projects</h2>
+          <button type="button" class="mini-btn" data-add="projects">+ Add project</button>
+        </div>
+        <div id="projectsList" class="item-list"></div>
+      </section>
+
+      <section class="card editor-section">
+        <div class="list-header">
+          <h2>Education & certifications</h2>
+          <button type="button" class="mini-btn" data-add="certifications">+ Add entry</button>
+        </div>
+        <div id="certificationsList" class="item-list"></div>
+      </section>
+    </form>
+  </main>
+  <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>

@@ -22,20 +22,20 @@
 
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="eyebrow">Senior Java Developer • Tech Lead • Cloud-Native Architect</p>
-        <h1 id="heroName" class="editable-text">LingaMoorthy Reddy Nandyala</h1>
-        <h2 id="heroTitle" class="editable-text">Senior Java Developer | Tech Lead | Cloud-Native Architect</h2>
-        <p id="heroIntro" class="editable-text">I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.</p>
+        <p class="eyebrow" id="heroEyebrow">Senior Java Developer • Tech Lead • Cloud-Native Architect</p>
+        <h1 id="heroName">LingaMoorthy Reddy Nandyala</h1>
+        <h2 id="heroTitle">Senior Java Developer | Tech Lead | Cloud-Native Architect</h2>
+        <p id="heroIntro">I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.</p>
         <div class="hero-actions">
-          <a href="Resume_LingaMoorthyReddy(Java).doc" class="btn primary" download>Download Resume</a>
+          <a href="Resume_LingaMoorthyReddy(Java).doc" class="btn primary" id="resumeLink" download>Download Resume</a>
           <a href="#contact" class="btn secondary">Contact Me</a>
         </div>
       </div>
       <aside class="hero-panel">
-        <img src="assets/Photo.jpg" alt="Profile photo" class="avatar-large" id="avatarImg">
+        <img src="assets/profile-photo.jpeg" alt="Profile photo" class="avatar-large" id="avatarImg">
         <div class="hero-panel-body">
-          <p class="eyebrow">Currently available</p>
-          <h3>Building secure, scalable systems that balance performance, reliability, and business impact.</h3>
+          <p class="eyebrow" id="heroAvailability">Currently available</p>
+          <h3 id="heroPanelText">Building secure, scalable systems that balance performance, reliability, and business impact.</h3>
         </div>
       </aside>
     </section>
@@ -43,8 +43,8 @@
     <section class="intro-grid" id="about">
       <div class="card about-card">
         <p class="eyebrow">About</p>
-        <p id="aboutSummary" class="editable-text">I’m a Senior Java Developer & Tech Lead with 11+ years of experience in building scalable enterprise applications, microservices, and cloud-native solutions.</p>
-        <p id="aboutDetails" class="editable-text">My work spans finance, credit analytics, and banking environments, where reliability, security, and business value are critical.</p>
+        <p id="aboutSummary">I’m a Senior Java Developer & Tech Lead with 11+ years of experience in building scalable enterprise applications, microservices, and cloud-native solutions.</p>
+        <p id="aboutDetails">My work spans finance, credit analytics, and banking environments, where reliability, security, and business value are critical.</p>
       </div>
       <div class="card">
         <div class="stats">
@@ -60,11 +60,11 @@
         <div class="mini-grid">
           <div class="mini-card">
             <h3>Certifications</h3>
-            <p id="aboutCertifications" class="editable-text">GCP Associate Cloud Engineer</p>
+            <p id="aboutCertifications">GCP Associate Cloud Engineer</p>
           </div>
           <div class="mini-card">
             <h3>Domains</h3>
-            <p id="aboutDomains" class="editable-text">Finance, Credit Analytics, Banking</p>
+            <p id="aboutDomains">Finance, Credit Analytics, Banking</p>
           </div>
         </div>
       </div>
@@ -121,9 +121,9 @@
         <p class="eyebrow">Connect</p>
         <h2>Let’s build something meaningful together.</h2>
         <ul class="contact-list">
-          <li><strong>Email</strong><a href="mailto:nlmreddy.java2021@gmail.com"><span class="editable-inline" data-contact="email">nlmreddy.java2021@gmail.com</span></a></li>
-          <li><strong>Mobile</strong><a href="tel:+917799041264"><span class="editable-inline" data-contact="mobile">+91-7799041264</span></a></li>
-          <li><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/lingamoorthy-reddy-nandyala" target="_blank" rel="noopener noreferrer"><span class="editable-inline" data-contact="linkedin">LingaMoorthy Reddy Nandyala</span></a></li>
+          <li><strong>Email</strong><a id="contactEmail" href="mailto:nlmreddy.java2021@gmail.com"><span data-contact="email">nlmreddy.java2021@gmail.com</span></a></li>
+          <li><strong>Mobile</strong><a id="contactMobile" href="tel:+917799041264"><span data-contact="mobile">+91-7799041264</span></a></li>
+          <li><strong>LinkedIn</strong><a id="contactLinkedin" href="https://www.linkedin.com/in/lingamoorthy-reddy-nandyala" target="_blank" rel="noopener noreferrer"><span data-contact="linkedin">LingaMoorthy Reddy Nandyala</span></a></li>
         </ul>
       </div>
       <div class="card contact-form-card">
@@ -138,9 +138,8 @@
   </main>
 
   <footer>
-    <p>© 2026 – LingaMoorthy Reddy</p>
+    <p>© 2026 – LingaMoorthy Reddy · <a class="footer-admin" href="/admin/">Admin</a></p>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
