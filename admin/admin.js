@@ -31,6 +31,16 @@ const LISTS = {
       { key: 'description', label: 'Description', multiline: true }
     ]
   },
+  experience: {
+    container: 'experienceList',
+    blank: { title: '', company: '', date: '', description: '' },
+    fields: [
+      { key: 'title', label: 'Role title' },
+      { key: 'company', label: 'Company' },
+      { key: 'date', label: 'Dates' },
+      { key: 'description', label: 'Description', multiline: true }
+    ]
+  },
   certifications: {
     container: 'certificationsList',
     blank: { title: 'New entry', detail: '' },

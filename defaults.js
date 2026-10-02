@@ -30,6 +30,38 @@ export const defaults = {
     { title: 'ATM EJ Pulling Tool (C-Edge)', description: 'Centralized ATM management and reconciliation.' },
     { title: 'RuPay Card Enquiry (Green & Wise)', description: 'Call center tool for card inquiries and disputes.' }
   ],
+  experience: [
+    {
+      title: 'Software Engineer – Career/Manager, P3',
+      company: 'Equifax Analytics Private Limited',
+      date: 'Nov 2023 - Present',
+      description: 'Role: Tech Leader (Software Engineer – Career, P3)\nDeveloped secure and scalable APIs to generate credit reports and scores from customer registration information.\nEquifax data analytics and credit assessment tools help expand access to affordable mainstream financial services.'
+    },
+    {
+      title: 'Lead 1 – Software Engineering, B1',
+      company: 'PTEC Technology Solutions Private Limited',
+      date: 'Jun 2023 - Oct 2023',
+      description: 'Worked as a Lead 1 – Software Engineering, B1. The role transitioned from PTEC to Equifax.'
+    },
+    {
+      title: 'Senior Consultant/Tech Lead',
+      company: 'Capgemini',
+      date: 'Sep 2021 - May 2023',
+      description: 'Role: Tech Leader (Senior Consultant – C1)\nLed project teams and drove delivery of key initiatives.\nDeveloped a secure, scalable SMS-based account lookup API for credit card transactions, reducing fraud and improving customer convenience. The system also supported barcode generation for in-store purchases without physical cards.'
+    },
+    {
+      title: 'Assistant System Analyst',
+      company: 'C-EDGE Technologies Limited',
+      date: 'Apr 2017 - Sep 2021',
+      description: 'Contributed to system analysis and support initiatives.\nBuilt a centralized ATM management tool for EJ file pulling, advertisement uploads, error screen tracking, and patch updates, enabling daily reconciliation and reporting.\nDeveloped a reconciliation dashboard across ATM, POS, UPI, IMPS, and AEPS channels, with manual reconciliation and dispute tracking.'
+    },
+    {
+      title: 'Trainee Software Engineer (Jr. Java Developer)',
+      company: 'Green & Wise',
+      date: 'Apr 2015 - Mar 2017',
+      description: 'Contributed to software development while building Java experience.\nDeveloped a tool for call center agents to manage RuPay card inquiries, block lost cards, and raise disputes. Automated reporting and email alerts to client banks.'
+    }
+  ],
   certifications: [
     { title: 'B.Tech – Electrical & Electronics Engineering', detail: 'JNTU Hyderabad, 2012' },
     { title: 'GCP Associate Cloud Engineer', detail: 'Cloud certification focused on core GCP services and architecture principles.' },

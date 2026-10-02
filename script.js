@@ -1,5 +1,8 @@
 import { withDefaults, fileUrl, DEFAULT_PHOTO, DEFAULT_RESUME } from './defaults.js';
 
+let introTypingTimer = null;
+let lastIntroText = null;
+
 // Invite, recovery and confirmation emails link to the site root; send them to the admin page.
 if (/(invite|recovery|confirmation|email_change)_token=/.test(window.location.hash)) {
   window.location.replace(`/admin/${window.location.hash}`);
@@ -8,6 +11,37 @@ if (/(invite|recovery|confirmation|email_change)_token=/.test(window.location.ha
 function setText(id, value) {
   const el = document.getElementById(id);
   if (el) el.textContent = value;
+}
+
+function animateHeroIntro(text) {
+  const accessibleText = document.getElementById('heroIntroAccessible');
+  const visualText = document.getElementById('heroIntroVisual');
+  if (!accessibleText || !visualText) return;
+
+  accessibleText.textContent = text;
+  if (text === lastIntroText) return;
+  lastIntroText = text;
+
+  window.clearInterval(introTypingTimer);
+  visualText.classList.remove('is-typing');
+  const characters = Array.from(text);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || characters.length === 0) {
+    visualText.textContent = text;
+    return;
+  }
+
+  visualText.textContent = '';
+  visualText.classList.add('is-typing');
+  let typed = 0;
+  introTypingTimer = window.setInterval(() => {
+    typed += 1;
+    visualText.textContent = characters.slice(0, typed).join('');
+    if (typed === characters.length) {
+      window.clearInterval(introTypingTimer);
+      introTypingTimer = null;
+      visualText.classList.remove('is-typing');
+    }
+  }, 24);
 }
 
 function card(...children) {
@@ -39,6 +73,27 @@ function renderProjects(projects) {
   ));
 }
 
+function renderExperience(experience) {
+  document.getElementById('experienceList').replaceChildren(...experience.map((item) => {
+    const entry = document.createElement('li');
+    const current = /\bpresent\b/i.test(item.date);
+    entry.className = `experience-entry${current ? ' is-current' : ''}`;
+
+    const heading = document.createElement('div');
+    heading.className = 'experience-entry-heading';
+    heading.append(element('h3', item.title));
+    if (current) heading.append(element('span', 'Current', 'experience-current'));
+
+    const meta = document.createElement('p');
+    meta.className = 'experience-meta';
+    meta.append(element('span', item.company, 'experience-company'));
+    meta.append(element('span', item.date, 'experience-date'));
+
+    entry.append(heading, meta, element('p', item.description, 'experience-description'));
+    return entry;
+  }));
+}
+
 function renderCertifications(certifications) {
   document.getElementById('certificationsGrid').replaceChildren(...certifications.map((item) =>
     card(element('h3', item.title), element('p', item.detail, 'card-text'))
@@ -46,8 +101,9 @@ function renderCertifications(certifications) {
 }
 
 function populate(content) {
-  ['heroEyebrow', 'heroName', 'heroTitle', 'heroIntro', 'heroAvailability', 'heroPanelText',
+  ['heroEyebrow', 'heroName', 'heroTitle', 'heroAvailability', 'heroPanelText',
     'aboutSummary', 'aboutDetails', 'aboutCertifications', 'aboutDomains'].forEach((key) => setText(key, content[key]));
+  animateHeroIntro(content.heroIntro);
 
   document.getElementById('avatarImg').src = fileUrl('photo', content.photo) || DEFAULT_PHOTO;
   document.getElementById('resumeLink').href = fileUrl('resume', content.resume) || DEFAULT_RESUME;
@@ -62,6 +118,7 @@ function populate(content) {
 
   renderSkills(content.skills);
   renderProjects(content.projects);
+  renderExperience(content.experience || []);
   renderCertifications(content.certifications);
 }
 

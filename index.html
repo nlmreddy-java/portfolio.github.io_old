@@ -25,7 +25,10 @@
         <p class="eyebrow" id="heroEyebrow">Senior Java Developer • Tech Lead • Cloud-Native Architect</p>
         <h1 id="heroName">LingaMoorthy Reddy Nandyala</h1>
         <h2 id="heroTitle">Senior Java Developer | Tech Lead | Cloud-Native Architect</h2>
-        <p id="heroIntro">I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.</p>
+        <p id="heroIntro" class="hero-intro">
+          <span id="heroIntroAccessible" class="visually-hidden">I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.</span>
+          <span id="heroIntroVisual" class="hero-intro__visual" aria-hidden="true">I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.</span>
+        </p>
         <div class="hero-actions">
           <a href="Resume_LingaMoorthyReddy(Java).doc" class="btn primary" id="resumeLink" download>Download Resume</a>
           <a href="#contact" class="btn secondary">Contact Me</a>
@@ -105,6 +108,14 @@
           <li><strong>Stakeholder collaboration</strong><br>Partnered with clients and product teams to turn requirements into scalable software.</li>
         </ul>
       </div>
+
+      <div class="section-header experience-header">
+        <div>
+          <p class="eyebrow">Professional history</p>
+          <h2>Work Experience</h2>
+        </div>
+      </div>
+      <ol id="experienceList" class="experience-list" aria-label="Work experience"></ol>
 
       <div class="section-header education-header">
         <div>
