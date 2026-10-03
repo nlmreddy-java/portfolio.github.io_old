@@ -10,7 +10,13 @@
 <body>
   <main class="page-shell">
     <header class="site-header">
-      <a class="brand" href="#top">LRN</a>
+      <a class="brand" href="#top">
+        <span class="brand-name">LINGAMOORTHY REDDY</span>
+        <span class="brand-caption">
+          <span class="visually-hidden">Senior Java Engineer • Tech Lead</span>
+          <span id="brandCaptionVisual" class="brand-caption__visual" aria-hidden="true">Senior Java Engineer • Tech Lead</span>
+        </span>
+      </a>
       <nav class="site-nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -22,7 +28,6 @@
 
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="eyebrow" id="heroEyebrow">Senior Java Developer • Tech Lead • Cloud-Native Architect</p>
         <h1 id="heroName">LingaMoorthy Reddy Nandyala</h1>
         <h2 id="heroTitle">Senior Java Developer | Tech Lead | Cloud-Native Architect</h2>
         <p id="heroIntro" class="hero-intro">
@@ -38,7 +43,7 @@
         <img src="assets/profile-photo.jpeg" alt="Profile photo" class="avatar-large" id="avatarImg">
         <div class="hero-panel-body">
           <p class="eyebrow" id="heroAvailability">Currently available</p>
-          <h3 id="heroPanelText">Building secure, scalable systems that balance performance, reliability, and business impact.</h3>
+          <h3 id="heroPanelText">Building scalable, secure, and cloud-native systems that turn complex business challenges into reliable technology solutions.</h3>
         </div>
       </aside>
     </section>
@@ -46,8 +51,7 @@
     <section class="intro-grid" id="about">
       <div class="card about-card">
         <p class="eyebrow">About</p>
-        <p id="aboutSummary">I’m a Senior Java Developer & Tech Lead with 11+ years of experience in building scalable enterprise applications, microservices, and cloud-native solutions.</p>
-        <p id="aboutDetails">My work spans finance, credit analytics, and banking environments, where reliability, security, and business value are critical.</p>
+        <div id="aboutParagraphs" class="about-copy"></div>
       </div>
       <div class="card">
         <div class="stats">
@@ -63,7 +67,8 @@
         <div class="mini-grid">
           <div class="mini-card">
             <h3>Certifications</h3>
-            <p id="aboutCertifications">GCP Associate Cloud Engineer</p>
+            <p id="aboutCertifications">GCP Associate Cloud Engineer
+Google Generative AI Leader</p>
           </div>
           <div class="mini-card">
             <h3>Domains</h3>

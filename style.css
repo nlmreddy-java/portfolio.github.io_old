@@ -43,11 +43,25 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(12px);
 }
 .brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  line-height: 1.2;
+}
+.brand-name {
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
+.brand-caption {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  animation: brand-caption-float 4s ease-in-out infinite alternate;
+}
+.brand-caption__visual { display: inline-block; }
 .site-nav { display: flex; gap: 0.45rem; flex-wrap: wrap; }
 .site-nav a {
   color: var(--muted);
@@ -119,6 +133,16 @@ a { color: inherit; text-decoration: none; }
   background: var(--accent);
   animation: intro-cursor-blink 650ms steps(2, start) infinite;
 }
+.brand-caption__visual.is-typing::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 0.9em;
+  margin-left: 2px;
+  vertical-align: -0.1em;
+  background: currentColor;
+  animation: intro-cursor-blink 650ms steps(2, start) infinite;
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -138,9 +162,14 @@ a { color: inherit; text-decoration: none; }
 @keyframes intro-cursor-blink {
   to { opacity: 0; }
 }
+@keyframes brand-caption-float {
+  from { transform: translateY(-4px); opacity: 0.78; }
+  to { transform: translateY(2px); opacity: 1; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .hero h2, .hero-intro { animation: none; }
-  .hero-intro__visual.is-typing::after { animation: none; }
+  .hero h2, .hero-intro, .brand-caption { animation: none; }
+  .hero-intro__visual.is-typing::after,
+  .brand-caption__visual.is-typing::after { animation: none; }
 }
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .btn {
@@ -213,6 +242,9 @@ section {
   box-shadow: var(--shadow);
 }
 .about-card p { color: var(--muted); }
+.about-copy p { margin: 0 0 1rem; }
+.about-copy p:last-child { margin-bottom: 0; }
+.about-copy strong { color: var(--text); }
 .stats {
   display: grid;
   gap: 0.95rem;
@@ -239,7 +271,7 @@ section {
   padding: 0.95rem 1rem;
 }
 .mini-card h3 { margin: 0 0 0.3rem; font-size: 1rem; }
-.mini-card p { margin: 0; color: var(--muted); }
+.mini-card p { margin: 0; color: var(--muted); white-space: pre-line; }
 
 .skills-grid, .projects-grid, .cert-grid {
   display: grid;

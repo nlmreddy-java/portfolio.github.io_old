@@ -91,7 +91,6 @@
 
       <section class="card editor-section">
         <h2>Hero</h2>
-        <label>Tagline<input name="heroEyebrow"></label>
         <label>Name<input name="heroName"></label>
         <label>Title<input name="heroTitle"></label>
         <label>Introduction<textarea name="heroIntro" rows="3"></textarea></label>
@@ -103,10 +102,13 @@
 
       <section class="card editor-section">
         <h2>About</h2>
-        <label>Summary<textarea name="aboutSummary" rows="3"></textarea></label>
-        <label>Details<textarea name="aboutDetails" rows="3"></textarea></label>
+        <div class="list-header">
+          <h3>About paragraphs</h3>
+          <button type="button" class="mini-btn" data-add="aboutParagraphs">+ Add paragraph</button>
+        </div>
+        <div id="aboutParagraphsList" class="item-list"></div>
         <div class="field-row">
-          <label>Certifications<input name="aboutCertifications"></label>
+          <label>Certifications<textarea name="aboutCertifications" rows="2"></textarea></label>
           <label>Domains<input name="aboutDomains"></label>
         </div>
       </section>

@@ -1,14 +1,21 @@
 // Default portfolio content, used until the admin saves changes.
 export const defaults = {
-  heroEyebrow: 'Senior Java Developer • Tech Lead • Cloud-Native Architect',
   heroName: 'LingaMoorthy Reddy Nandyala',
   heroTitle: 'Senior Java Developer | Tech Lead | Cloud-Native Architect',
   heroIntro: 'I build secure, scalable enterprise applications and cloud-native platforms with Java, Spring, and modern DevOps practices.',
   heroAvailability: 'Currently available',
-  heroPanelText: 'Building secure, scalable systems that balance performance, reliability, and business impact.',
+  heroPanelText: 'Building scalable, secure, and cloud-native systems that turn complex business challenges into reliable technology solutions.',
   aboutSummary: 'I’m a Senior Java Developer & Tech Lead with 11+ years of experience in building scalable enterprise applications, microservices, and cloud-native solutions.',
   aboutDetails: 'My work spans finance, credit analytics, and banking environments, where reliability, security, and business value are critical.',
-  aboutCertifications: 'GCP Associate Cloud Engineer, Google Generative AI Leader',
+  aboutParagraphs: [
+    { text: 'I’m a **Senior Java Developer & Tech Lead with 11+ years of experience** designing, developing, and delivering scalable enterprise applications, distributed systems, and cloud-native solutions.' },
+    { text: 'My expertise lies in **Java, Spring Boot, Microservices, REST APIs, event-driven architecture, and cloud technologies**, with a strong focus on building secure, resilient, and high-performance systems that can scale with evolving business needs.' },
+    { text: 'Throughout my career, I’ve worked extensively across **finance, credit analytics, and banking domains**, where reliability, security, data integrity, and regulatory considerations are essential. I enjoy translating complex business requirements into **clean, maintainable, and production-ready technology solutions**.' },
+    { text: 'As a Tech Lead, I combine hands-on engineering with **technical leadership, architecture design, code quality, mentoring, and engineering best practices**. I work closely with cross-functional teams to establish scalable architectures, improve development processes, and deliver solutions that create measurable business value.' },
+    { text: 'I’m particularly passionate about **distributed systems, cloud-native architecture, microservices, system design, and modern engineering practices**, and I continuously explore emerging technologies to build better, smarter, and more reliable software.' },
+    { text: '**My goal is simple:** build technology that is **scalable, secure, maintainable, and meaningful to the business.**' }
+  ],
+  aboutCertifications: 'GCP Associate Cloud Engineer\nGoogle Generative AI Leader',
   aboutDomains: 'Finance, Credit Analytics, Banking',
   contact: {
     email: 'nlmreddy.java2021@gmail.com',
@@ -18,10 +25,13 @@ export const defaults = {
   },
   skills: [
     { title: 'Languages', items: ['Java (8/17/21)', 'SQL', 'JavaScript'] },
-    { title: 'Frameworks', items: ['Spring Boot', 'Spring Security', 'Spring Cloud', 'Hibernate'] },
+    { title: 'Frameworks', items: ['Spring Boot', 'Spring Security', 'Spring Cloud', 'Hibernate', 'REST APIs'] },
+    { title: 'Frontend', items: ['HTML', 'CSS', 'React'] },
+    { title: 'Architectures', items: ['Microservices', 'System Design'] },
+    { title: 'AI Tools', items: ['Claude', 'ChatGPT', 'Gemini AI', 'Copilot'] },
     { title: 'Cloud', items: ['AWS', 'GCP', 'APIGEE'] },
-    { title: 'Databases', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Cassandra'] },
-    { title: 'Tools', items: ['Docker', 'Kubernetes', 'Jenkins', 'GitHub', 'Bitbucket'] },
+    { title: 'Databases', items: ['PostgreSQL', 'MySQL', 'MongoDB'] },
+    { title: 'Tools', items: ['Docker', 'Kubernetes', 'Jenkins', 'GitHub', 'Bitbucket', 'CI/CD'] },
     { title: 'Testing', items: ['JUnit', 'Mockito'] }
   ],
   projects: [
@@ -74,7 +84,11 @@ export const DEFAULT_RESUME = 'Resume_LingaMoorthyReddy(Java).doc';
 
 // Merge saved content over the defaults so newly added fields always have a value.
 export function withDefaults(saved = {}) {
-  return { ...defaults, ...saved, contact: { ...defaults.contact, ...(saved.contact || {}) } };
+  const content = { ...defaults, ...saved, contact: { ...defaults.contact, ...(saved.contact || {}) } };
+  if (typeof content.aboutCertifications === 'string') {
+    content.aboutCertifications = content.aboutCertifications.replace(/,\s*/g, '\n');
+  }
+  return content;
 }
 
 export function fileUrl(kind, info) {

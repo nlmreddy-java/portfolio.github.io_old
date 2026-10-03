@@ -41,6 +41,11 @@ const LISTS = {
       { key: 'description', label: 'Description', multiline: true }
     ]
   },
+  aboutParagraphs: {
+    container: 'aboutParagraphsList',
+    blank: { text: '' },
+    fields: [{ key: 'text', label: 'Paragraph', multiline: true }]
+  },
   certifications: {
     container: 'certificationsList',
     blank: { title: 'New entry', detail: '' },
