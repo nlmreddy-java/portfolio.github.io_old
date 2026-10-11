@@ -25,7 +25,7 @@ export const defaults = {
   },
   skills: [
     { title: 'Languages', items: ['Java (8/17/21)', 'SQL', 'JavaScript'] },
-    { title: 'Frameworks', items: ['Spring Boot', 'Spring Security', 'Spring Cloud', 'Hibernate', 'REST APIs'] },
+    { title: 'Frameworks', items: ['Spring Boot', 'Spring Security', 'Spring Cloud', 'Spring AI', 'Hibernate', 'REST APIs'] },
     { title: 'Frontend', items: ['HTML', 'CSS', 'React'] },
     { title: 'Architectures', items: ['Microservices', 'System Design', 'MVC'] },
     { title: 'AI Tools', items: ['Claude', 'ChatGPT', 'Gemini AI', 'Copilot'] },
